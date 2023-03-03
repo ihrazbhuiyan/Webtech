@@ -8,6 +8,7 @@ if (isset($_SESSION['msg11'])) {echo $_SESSION['msg11'];}
 if (isset($_SESSION['msg12'])) {echo $_SESSION['msg12'];}
 
 */
+$_SESSION["page"] = "RPLO";
 
 ?>
 

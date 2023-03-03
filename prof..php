@@ -1,5 +1,7 @@
 <?php 
 session_start();
+
+if($_SESSION["page"] === "RPLO"){
 if ($_SERVER['REQUEST_METHOD'] === "POST")
 {
 if (empty($_POST['fname']))
@@ -23,6 +25,21 @@ if (empty($_POST['Password']))
 	header("Location: RPLO.php");
  }
 }
+}elseif($_SESSION["page"] === "login"){
+if ($_SERVER['REQUEST_METHOD'] === "POST"){
+if (empty($_POST['Username']))
+ {
+ 	$_SESSION['msg11'] = "fill out Username";
+	header("Location: Login1.php");
+ }
+if (empty($_POST['Password']))
+ {
+ 	$_SESSION['msg12'] = "fill out Password";
+	header("Location: Login1.php");
+ }
+}
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +65,7 @@ if (empty($_POST['Password']))
 		
 		<br><br>
 		
-		<b>PAssword :</b> <label><?php if (isset($_POST['Password'])) {echo $_POST['Password'];} ?></label>
+		<b>Password :</b> <label><?php if (isset($_POST['Password'])) {echo $_POST['Password'];} ?></label>
 
 		<br><br>
 
